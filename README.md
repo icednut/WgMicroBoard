@@ -1,10 +1,10 @@
 WgMicroBoard
 ============
 
-<h2>개요</h2>
+<h2>Overview</h2>
 Spring + JPA + Hibernate 학습용 예제 게시판
 
-<h2>Spec</h2>
+<h2>Environment</h2>
 <ul>
   <li>JDK 1.7</li>
   <li>Gradle 2.x</li>
