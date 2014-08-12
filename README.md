@@ -16,3 +16,9 @@ Spring + JPA + Hibernate 학습용 예제 게시판
   <li>ThymeLeaf</li>
   <li>Bootstrap</li>
 </ul>
+
+<h2>요구사항</h2>
+<h4>회원</h4>
+<ul>
+  <li>회원 가입을 할 수 있어야 한다.</li>
+</ul>
