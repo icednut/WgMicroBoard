@@ -13,6 +13,6 @@ Spring + JPA + Hibernate 학습용 예제 게시판
   <li>Spring Data JPA</li>
   <li>JPA</li>
   <li>Hibernate 4.3.6</li>
-  <li>Bootstrap</li>
   <li>ThymeLeaf</li>
+  <li>Bootstrap</li>
 </ul>
