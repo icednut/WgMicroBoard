@@ -1,13 +1,54 @@
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'groovy'
 
 sourceCompatibility = 1.7
 version = '1.0'
 
+buildDir = 'build'
+
+ext {
+	versions = [
+        spring: '3.2.10.RELEASE',
+        springData: '1.6.2.RELEASE',
+        hibernate: '4.3.6.Final'
+    ]
+}
+
 repositories {
-    mavenCentral()
+	mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+	testCompile group: "junit", name: "junit", version: "4.11"
+	compile "org.projectlombok:lombok:1.14.4"
+    compile "org.springframework:spring-core:${versions.springData}"
+    compile "org.springframework:spring-context:${versions.spring}"
+    compile "org.springframework:spring-context-support:${versions.spring}"
+    compile "org.springframework:spring-webmvc:${versions.spring}"
+    compile "org.springframework:spring-test:${versions.spring}"
+    compile "org.springframework.data:spring-data-jpa:${versions.springData}"
+    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final'
+    compile "org.hibernate:hibernate-core:${versions.hibernate}"
+    compile "org.hibernate:hibernate-entitymanager:${versions.hibernate}"
+    compile 'com.h2database:h2:1.4.180'
+    compile 'commons-dbcp:commons-dbcp:1.4'
+}
+
+
+sourceSets.each { set ->
+	set.java.srcDirs.each { dir ->
+		if (!dir.exists()) {
+			dir.mkdirs()
+		}
+	}
+	set.resources.srcDirs.each { dir ->
+		if (!dir.exists()) {
+			dir.mkdirs()
+		}
+	}
+}
+
+if (!buildDir.exists()) {
+	buildDir.mkdirs()
 }
