@@ -54,6 +54,7 @@
     <orderEntry type="library" exported="" name="Gradle: commons-dbcp-1.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: commons-pool-1.5.4" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hibernate-jpa-2.0-api-1.0.0.Final" level="project" />
+    <orderEntry type="library" name="Gradle: mockito-all-1.9.5" level="project" />
   </component>
 </module>
 

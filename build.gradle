@@ -11,7 +11,10 @@ ext {
 	versions = [
         spring: '3.2.10.RELEASE',
         springData: '1.6.2.RELEASE',
-        hibernate: '4.3.6.Final'
+        hibernate: '4.3.6.Final',
+        dbcp: '1.4',
+        mockito: '1.9.5',
+        servlet: '3.1.0'
     ]
 }
 
@@ -32,7 +35,9 @@ dependencies {
     compile "org.hibernate:hibernate-core:${versions.hibernate}"
     compile "org.hibernate:hibernate-entitymanager:${versions.hibernate}"
     compile 'com.h2database:h2:1.4.180'
-    compile 'commons-dbcp:commons-dbcp:1.4'
+    compile "commons-dbcp:commons-dbcp:${versions.dbcp}"
+    compile "org.mockito:mockito-all:${versions.mockito}"
+    compile "javax.servlet:javax.servlet-api:${versions.servlet}"
 }
 
 
