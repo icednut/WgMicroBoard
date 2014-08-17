@@ -17,6 +17,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @Author wangeun.lee@sk.com
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfig.class)
 public class UserControllerTest {
@@ -46,7 +47,6 @@ public class UserControllerTest {
 		assertEquals("user/regist", viewName);
 	}
 
-	@Ignore
 	@Test
 	public void testRegist() throws Exception {
 		User user = new User();

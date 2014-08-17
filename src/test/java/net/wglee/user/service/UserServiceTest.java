@@ -7,18 +7,25 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+import javax.transaction.Transactional;
 
 /**
  * @Author wangeun.lee@sk.com
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @ContextConfiguration(classes = {ApplicationConfig.class})
+@Transactional
+@TransactionConfiguration(defaultRollback = true)
 public class UserServiceTest {
 	@Autowired
 	private UserService userService;
 
 	@Test
-	public void testAddUser() throws Exception {
+	public void testAdddUser() throws Exception {
 		User user = new User();
 		user.setEmail("test@test.com");
 		user.setNickname("testUser");

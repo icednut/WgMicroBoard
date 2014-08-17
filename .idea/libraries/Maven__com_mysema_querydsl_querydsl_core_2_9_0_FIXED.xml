@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.mysema.querydsl:querydsl-core:2.9.0.FIXED">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mysema/querydsl/querydsl-core/2.9.0.FIXED/querydsl-core-2.9.0.FIXED.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mysema/querydsl/querydsl-core/2.9.0.FIXED/querydsl-core-2.9.0.FIXED-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mysema/querydsl/querydsl-core/2.9.0.FIXED/querydsl-core-2.9.0.FIXED-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,30 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         metadata-complete="true"
+         version="3.0">
+
+    <display-name>WG Micro Board</display-name>
+
+    <context-param>
+        <param-name>defaultHtmlEscape</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <error-page>
+        <error-code>400</error-code>
+        <location>/WEB-INF/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/error.html</location>
+    </error-page>
+</web-app>

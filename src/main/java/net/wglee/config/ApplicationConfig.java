@@ -1,69 +1,77 @@
 package net.wglee.config;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.JpaVendorAdapter;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.servlet.HandlerMapping;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.handler.AbstractHandlerMapping;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.spring3.SpringTemplateEngine;
+import org.thymeleaf.spring3.dialect.SpringStandardDialect;
+import org.thymeleaf.spring3.view.ThymeleafViewResolver;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import org.thymeleaf.templateresolver.TemplateResolver;
 
-import javax.sql.DataSource;
-import java.util.Properties;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @Author wangeun.lee@sk.com
  */
 @Configuration
-@ComponentScan("net.wglee")
-@EnableJpaRepositories("net.wglee")
-public class ApplicationConfig {
+@EnableWebMvc
+@ComponentScan(basePackages = "net.wglee")
+@Import({PersistenceConfig.class})
+public class ApplicationConfig extends WebMvcConfigurerAdapter {
 	@Bean
-	public DataSource dataSource() {
-		BasicDataSource dataSource = new BasicDataSource();
+	public Set<IDialect> thymeleafDialects() {
+		Set<IDialect> dialects = new HashSet<IDialect>();
 
-		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:mem:datajpa");
-		dataSource.setUsername("sa");
-		dataSource.setPassword("");
-		return dataSource;
+		dialects.add(new SpringStandardDialect());
+		dialects.add(new LayoutDialect());
+		return dialects;
 	}
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-		Properties jpaProperties = new Properties();
-		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+	public SpringTemplateEngine templateEngine() {
+		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
 
-		jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-		jpaProperties.setProperty("hibernate.max_fetch_depth", "3");
-		jpaProperties.setProperty("hibernate.jdbc.fetch_size", "50");
-		jpaProperties.setProperty("hibernate.jdbc.batch_size", "10");
-		jpaProperties.setProperty("hibernate.show_sql", "true");
-		jpaProperties.setProperty("hibernate.use_sql_comments", "true");
-		jpaProperties.setProperty("hibernate.format_sql", "true");
-		jpaProperties.setProperty("hibernate.hbm2ddl.auto", "create");
-
-
-		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
-		entityManagerFactoryBean.setPackagesToScan("net.wglee");
-		entityManagerFactoryBean.setJpaProperties(jpaProperties);
-		return entityManagerFactoryBean;
+		templateEngine.addTemplateResolver(templateResolver());
+		templateEngine.setDialects(thymeleafDialects());
+		return templateEngine;
 	}
 
 	@Bean
-	public JpaVendorAdapter jpaVendorAdapter() {
-		return new HibernateJpaVendorAdapter();
+	public TemplateResolver templateResolver() {
+		ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver();
+
+		templateResolver.setTemplateMode("HTML5");
+		templateResolver.setPrefix("/WEB-INF/views/");
+		templateResolver.setSuffix(".html");
+		templateResolver.setCharacterEncoding("UTF-8");
+		templateResolver.setCacheable(false);
+		return templateResolver;
 	}
 
 	@Bean
-	public JpaTransactionManager transactionManager() {
-		JpaTransactionManager transactionManager = new JpaTransactionManager();
+	public ViewResolver viewResolver() {
+		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 
-		transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-		return transactionManager;
+		viewResolver.setTemplateEngine(templateEngine());
+		viewResolver.setCharacterEncoding("UTF-8");
+		viewResolver.setOrder(1);
+		return viewResolver;
 	}
 
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	}
 }

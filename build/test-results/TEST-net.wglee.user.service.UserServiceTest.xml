@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.wglee.user.service.UserServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2014-08-14T15:12:36" hostname="SKP1002371MN001.local" time="0.745">
+  <properties/>
+  <testcase name="testAdddUser" classname="net.wglee.user.service.UserServiceTest" time="0.745"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>
