@@ -53,7 +53,6 @@ dependencies {
     compile "org.springframework.data:spring-data-jpa:${versions.springData}"
 	compile "org.hibernate:hibernate-core:${versions.hibernate}"
 	compile "org.hibernate:hibernate-entitymanager:${versions.hibernate}"
-    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final'
     compile 'com.h2database:h2:1.4.180'
 	compile "commons-dbcp:commons-dbcp:${versions.dbcp}"
 	compile "org.mockito:mockito-all:${versions.mockito}"

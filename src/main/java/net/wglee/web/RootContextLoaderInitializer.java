@@ -2,11 +2,14 @@ package net.wglee.web;
 
 import net.wglee.config.ApplicationConfig;
 import org.springframework.core.Conventions;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
+import org.springframework.web.filter.HttpPutFormContentFilter;
 import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -22,40 +25,28 @@ public class RootContextLoaderInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
 		rootContext.register(ApplicationConfig.class);
+		servletContext.addListener(new ContextLoaderListener(rootContext));
 
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
 		characterEncodingFilter.setEncoding("UTF-8");
 		characterEncodingFilter.setForceEncoding(true);
 		registerServletFilter(servletContext, characterEncodingFilter);
 
-////		servletContext.setInitParameter(ContextLoader.CONTEXT_INITIALIZER_CLASSES_PARAM, EnvironmentInitializer.class.getName());
-//		HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
-//		registerServletFilter(servletContext, hiddenHttpMethodFilter);
-//
-//		HttpPutFormContentFilter httpPutFormContentFilter = new HttpPutFormContentFilter();
-//		registerServletFilter(servletContext, httpPutFormContentFilter);
-//
-//		OpenEntityManagerInViewFilter openEntityManagerInViewFilter = new OpenEntityManagerInViewFilter();
-//		registerServletFilter(servletContext, openEntityManagerInViewFilter);
-//
-//		CacheExpiresFilter cacheExpiresFilter = new CacheExpiresFilter();
-//		String filterName = Conventions.getVariableName(cacheExpiresFilter);
-//		FilterRegistration.Dynamic registration = servletContext.addFilter(filterName, cacheExpiresFilter);
-//		registration.setAsyncSupported(false);
-//		registration.addMappingForUrlPatterns(getDispatcherTypes(), false, "/*");
-//
-//		DelegatingFilterProxy springSecurityFilterChain = new DelegatingFilterProxy("springSecurityFilterChain");
-//		registerServletFilter(servletContext, springSecurityFilterChain);
+		HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
+		registerServletFilter(servletContext, hiddenHttpMethodFilter);
 
-		registerServlets(servletContext, rootContext);
+		HttpPutFormContentFilter httpPutFormContentFilter = new HttpPutFormContentFilter();
+		registerServletFilter(servletContext, httpPutFormContentFilter);
+
+		OpenEntityManagerInViewFilter openEntityManagerInViewFilter = new OpenEntityManagerInViewFilter();
+		registerServletFilter(servletContext, openEntityManagerInViewFilter);
+
+		CacheExpiresFilter cacheExpiresFilter = new CacheExpiresFilter();
+		String filterName = Conventions.getVariableName(cacheExpiresFilter);
+		FilterRegistration.Dynamic registration = servletContext.addFilter(filterName, cacheExpiresFilter);
+		registration.setAsyncSupported(false);
+		registration.addMappingForUrlPatterns(getDispatcherTypes(), false, "/*");
 	}
-
-	private void registerServlets(ServletContext servletContext, AnnotationConfigWebApplicationContext rootContext) {
-		ServletRegistration.Dynamic springDispatcher = servletContext.addServlet("SpringDispatcherServlet", new DispatcherServlet(rootContext));
-		springDispatcher.setLoadOnStartup(1);
-		springDispatcher.addMapping("/");
-	}
-
 
 	protected FilterRegistration.Dynamic registerServletFilter(ServletContext servletContext, Filter filter) {
 		String filterName = Conventions.getVariableName(filter);
