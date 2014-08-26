@@ -12,16 +12,6 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="LOCAL" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../tgc" />
-        <option name="gradleHome" value="/usr/local/gradle-2.0" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/../tgc" />
-          </set>
-        </option>
-      </GradleProjectSettings>
     </option>
   </component>
 </project>
