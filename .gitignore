@@ -1,4 +1,4 @@
-./.git
-./.gradle
-./build
-./.idea
+.git/
+.gradle/
+build/
+.idea/
