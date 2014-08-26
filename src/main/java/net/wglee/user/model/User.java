@@ -1,13 +1,20 @@
 package net.wglee.user.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.context.annotation.Role;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @Author wangeun.lee@sk.com
  */
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
 @Table
 public class User {
@@ -19,9 +26,12 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-	@Column(name = "nickname")
-	private String nickname;
+	@Column(name = "username")
+	private String username;
 
 	@Column(name = "password")
 	private String password;
+
+	@Column(name = "roles")
+	private String roles;
 }

@@ -22,6 +22,16 @@ public class UserController {
 		return "user/login";
 	}
 
+	@RequestMapping(value = "/loginSuccess")
+	public String loginSuccess() {
+		return "user/loginSuccess";
+	}
+
+	@RequestMapping(value = "/loginFail")
+	public String loginFail() {
+		return "user/loginFail";
+	}
+
 	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	public String showRegistForm() {
 		return "user/regist";
@@ -33,5 +43,10 @@ public class UserController {
 		RedirectView view = new RedirectView("/user/login");
 		view.setExposeModelAttributes(false);
 		return view;
+	}
+
+	@RequestMapping(value = "/test")
+	public String test() {
+		return "/user/test";
 	}
 }

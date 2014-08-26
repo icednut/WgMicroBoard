@@ -1,6 +1,7 @@
 package net.wglee.web.user.controller;
 
 import net.wglee.config.ApplicationConfig;
+import net.wglee.config.DefaultWebAppConfig;
 import net.wglee.user.model.User;
 import net.wglee.user.service.UserService;
 import org.junit.*;
@@ -19,7 +20,7 @@ import static org.junit.Assert.assertNotNull;
  */
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = ApplicationConfig.class)
+@ContextConfiguration(classes = {ApplicationConfig.class, DefaultWebAppConfig.class})
 public class UserControllerTest {
 	@Autowired
 	@InjectMocks
@@ -51,7 +52,7 @@ public class UserControllerTest {
 	public void testRegist() throws Exception {
 		User user = new User();
 		user.setEmail("test@test.com");
-		user.setNickname("testNickName");
+		user.setUsername("testNickName");
 		user.setPassword("12345678!");
 
 		RedirectView view = controller.regist(user);

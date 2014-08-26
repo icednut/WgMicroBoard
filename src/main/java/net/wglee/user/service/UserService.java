@@ -7,4 +7,6 @@ import net.wglee.user.model.User;
  */
 public interface UserService {
 	void addUser(User user);
+
+	User findByUsername(String username);
 }
