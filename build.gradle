@@ -66,21 +66,3 @@ dependencies {
     compile "org.springframework.security:spring-security-web:${versions.springSecurity}"
     compile "org.springframework.security:spring-security-config:${versions.springSecurity}"
 }
-
-
-sourceSets.each { set ->
-	set.java.srcDirs.each { dir ->
-		if (!dir.exists()) {
-			dir.mkdirs()
-		}
-	}
-	set.resources.srcDirs.each { dir ->
-		if (!dir.exists()) {
-			dir.mkdirs()
-		}
-	}
-}
-
-if (!buildDir.exists()) {
-	buildDir.mkdirs()
-}
