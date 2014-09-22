@@ -1,7 +1,7 @@
 package net.wglee.web.user.controller;
 
 import net.wglee.config.ApplicationConfig;
-import net.wglee.config.DefaultWebAppConfig;
+import net.wglee.config.WebMvcConfig;
 import net.wglee.user.model.User;
 import net.wglee.user.service.UserService;
 import org.junit.*;
@@ -10,6 +10,7 @@ import org.mockito.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.servlet.view.RedirectView;
 
 import static org.junit.Assert.assertEquals;
@@ -18,9 +19,9 @@ import static org.junit.Assert.assertNotNull;
 /**
  * @Author wangeun.lee@sk.com
  */
-@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ApplicationConfig.class, DefaultWebAppConfig.class})
+@ContextConfiguration(classes = {ApplicationConfig.class, WebMvcConfig.class})
+@WebAppConfiguration
 public class UserControllerTest {
 	@Autowired
 	@InjectMocks
@@ -39,6 +40,13 @@ public class UserControllerTest {
 		String viewName = controller.showLoginForm();
 
 		assertEquals("user/login", viewName);
+	}
+
+	@Test
+	public void testShowLoginSuccess() throws Exception {
+		String viewName = controller.loginSuccess();
+
+		assertEquals("user/loginSuccess", viewName);
 	}
 
 	@Test

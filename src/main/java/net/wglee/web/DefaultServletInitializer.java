@@ -1,9 +1,8 @@
 package net.wglee.web;
 
 import net.wglee.config.ApplicationConfig;
-import net.wglee.config.DefaultWebAppConfig;
+import net.wglee.config.WebMvcConfig;
 import net.wglee.config.SecurityConfig;
-import org.springframework.core.Conventions;
 import org.springframework.core.annotation.Order;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.filter.*;
@@ -30,7 +29,7 @@ public class DefaultServletInitializer extends AbstractAnnotationConfigDispatche
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class<?>[]{
-				DefaultWebAppConfig.class
+				WebMvcConfig.class
 		};
 	}
 

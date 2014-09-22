@@ -19,9 +19,9 @@ public class UserSecurityAdaptor extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.
-			userDetailsService(commonUserDetailsService).
-		and().
-			inMemoryAuthentication().withUser("testUser@naver.com").password("123456").roles("USER");
+				userDetailsService(commonUserDetailsService).
+				and().
+				inMemoryAuthentication().withUser("testUser@naver.com").password("123456").roles("USER");
 	}
 
 	@Override
@@ -34,16 +34,16 @@ public class UserSecurityAdaptor extends WebSecurityConfigurerAdapter {
 		http.
 				csrf().disable().
 				formLogin().
-					loginPage("/user/login").
-					defaultSuccessUrl("/user/loginSuccess").
-					failureUrl("/user/loginFail").
-					usernameParameter("username").
-					passwordParameter("password").
-					permitAll().
+				loginPage("/user/login").
+				defaultSuccessUrl("/user/loginSuccess").
+				failureUrl("/user/loginFail").
+				usernameParameter("username").
+				passwordParameter("password").
+				permitAll().
 				and().
 				authorizeRequests().
-					antMatchers("/user/regist").permitAll().
-					anyRequest().authenticated();
+				antMatchers("/user/regist").permitAll().
+				anyRequest().authenticated();
 	}
 
 }

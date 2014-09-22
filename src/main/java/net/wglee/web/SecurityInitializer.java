@@ -9,5 +9,4 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
  */
 @Order(2)
 public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {
-//public class SecurityInitializer {
 }

@@ -1,12 +1,11 @@
 package net.wglee.user.service;
 
 import net.wglee.config.ApplicationConfig;
-import net.wglee.config.DefaultWebAppConfig;
+import net.wglee.config.WebMvcConfig;
 import net.wglee.user.model.User;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -19,7 +18,7 @@ import javax.transaction.Transactional;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {ApplicationConfig.class, DefaultWebAppConfig.class})
+@ContextConfiguration(classes = {ApplicationConfig.class, WebMvcConfig.class})
 @Transactional
 @TransactionConfiguration(defaultRollback = true)
 public class UserServiceTest {

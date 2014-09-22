@@ -25,7 +25,7 @@ import java.util.Set;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "net.wglee")
-public class DefaultWebAppConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public Set<IDialect> thymeleafDialects() {
 		Set<IDialect> dialects = new HashSet<IDialect>();
