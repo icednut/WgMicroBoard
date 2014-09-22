@@ -1,4 +1,4 @@
-package net.wglee.web.user.controller;
+package net.wglee.user.controller;
 
 import net.wglee.config.ApplicationConfig;
 import net.wglee.config.WebMvcConfig;

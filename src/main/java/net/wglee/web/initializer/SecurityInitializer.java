@@ -1,4 +1,4 @@
-package net.wglee.web;
+package net.wglee.web.initializer;
 
 import net.wglee.config.SecurityConfig;
 import org.springframework.core.annotation.Order;

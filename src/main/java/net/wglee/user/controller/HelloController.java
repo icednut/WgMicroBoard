@@ -1,4 +1,4 @@
-package net.wglee.web.user.controller;
+package net.wglee.user.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

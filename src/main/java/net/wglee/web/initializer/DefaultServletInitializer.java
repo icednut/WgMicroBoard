@@ -1,4 +1,4 @@
-package net.wglee.web;
+package net.wglee.web.initializer;
 
 import net.wglee.config.ApplicationConfig;
 import net.wglee.config.WebMvcConfig;

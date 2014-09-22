@@ -1,4 +1,4 @@
-package net.wglee.web.user.controller;
+package net.wglee.user.controller;
 
 import net.wglee.user.model.User;
 import net.wglee.user.service.UserService;

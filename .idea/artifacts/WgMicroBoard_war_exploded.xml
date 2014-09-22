@@ -1,0 +1,60 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WgMicroBoard:war exploded">
+    <output-path>$PROJECT_DIR$/build/classes/artifacts/WgMicroBoard_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WgMicroBoard" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: lombok-1.14.4" />
+          <element id="library" level="project" name="Gradle: spring-core-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-beans-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-context-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-context-support-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-web-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-webmvc-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-test-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-data-jpa-1.6.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: hibernate-core-4.3.6.Final" />
+          <element id="library" level="project" name="Gradle: hibernate-entitymanager-4.3.6.Final" />
+          <element id="library" level="project" name="Gradle: h2-1.4.180" />
+          <element id="library" level="project" name="Gradle: commons-dbcp-1.4" />
+          <element id="library" level="project" name="Gradle: mockito-all-1.9.5" />
+          <element id="library" level="project" name="Gradle: jstl-1.2" />
+          <element id="library" level="project" name="Gradle: thymeleaf-2.1.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: thymeleaf-spring3-2.1.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: thymeleaf-layout-dialect-1.2.5" />
+          <element id="library" level="project" name="Gradle: spring-security-web-3.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-security-config-3.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-logging-1.1.3" />
+          <element id="library" level="project" name="Gradle: spring-aop-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-expression-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-data-commons-1.8.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-orm-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-tx-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: aspectjrt-1.8.1" />
+          <element id="library" level="project" name="Gradle: slf4j-api-1.7.7" />
+          <element id="library" level="project" name="Gradle: jcl-over-slf4j-1.7.7" />
+          <element id="library" level="project" name="Gradle: jboss-logging-3.1.3.GA" />
+          <element id="library" level="project" name="Gradle: jboss-logging-annotations-1.2.0.Beta1" />
+          <element id="library" level="project" name="Gradle: jboss-transaction-api_1.2_spec-1.0.0.Final" />
+          <element id="library" level="project" name="Gradle: dom4j-1.6.1" />
+          <element id="library" level="project" name="Gradle: hibernate-commons-annotations-4.0.5.Final" />
+          <element id="library" level="project" name="Gradle: hibernate-jpa-2.1-api-1.0.0.Final" />
+          <element id="library" level="project" name="Gradle: javassist-3.18.1-GA" />
+          <element id="library" level="project" name="Gradle: antlr-2.7.7" />
+          <element id="library" level="project" name="Gradle: jandex-1.1.0.Final" />
+          <element id="library" level="project" name="Gradle: commons-pool-1.5.4" />
+          <element id="library" level="project" name="Gradle: ognl-3.0.6" />
+          <element id="library" level="project" name="Gradle: unbescape-1.0" />
+          <element id="library" level="project" name="Gradle: aopalliance-1.0" />
+          <element id="library" level="project" name="Gradle: spring-security-core-3.2.5.RELEASE" />
+          <element id="library" level="project" name="Gradle: spring-jdbc-3.2.10.RELEASE" />
+          <element id="library" level="project" name="Gradle: xml-apis-1.0.b2" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="WgMicroBoard/web/Web" />
+    </root>
+  </artifact>
+</component>
